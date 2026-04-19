@@ -1,6 +1,11 @@
+torch
+torchvision
 numpy
 matplotlib
 pillow
 jupyter
-opencv-python
+opencv-python-headless
 scikit-image
+scipy
+lpips
+pytorch-fid
