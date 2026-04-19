@@ -1,4 +1,4 @@
-torch
+gitorch
 torchvision
 numpy
 matplotlib
