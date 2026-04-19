@@ -26,7 +26,7 @@ class PartialConv2d(nn.Module):
 class UNetInpainting(nn.Module):
     def __init__(self):
         super().__init__()
-        # Encoder（4次下采样，256->128->64->32->16）
+        # Encoder
         self.enc1 = PartialConv2d(3,   64,  7, stride=1, padding=3)
         self.enc2 = PartialConv2d(64,  128, 5, stride=2, padding=2)
         self.enc3 = PartialConv2d(128, 256, 5, stride=2, padding=2)
