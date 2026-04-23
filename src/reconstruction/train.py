@@ -27,8 +27,9 @@ def train(args):
     criterion = nn.L1Loss()
 
     os.makedirs('models', exist_ok=True)
+    scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=5, gamma=0.5)
 
-    best_ssim = 0
+    best_ssim = float("inf")
     patience  = 0
 
     for epoch in range(args.epochs):
@@ -64,8 +65,8 @@ def train(args):
 
         torch.save(model.state_dict(), f"models/reconstruction_epoch{epoch+1}.pth")
 
-        if avg_ssim > best_ssim:
-            best_ssim = avg_ssim
+        if avg_mse < best_ssim:
+            best_ssim = avg_mse
             patience  = 0
             torch.save(model.state_dict(), "models/reconstruction_best.pth")
             print(f"  ✓ Best model saved (SSIM={best_ssim:.4f})", flush=True)

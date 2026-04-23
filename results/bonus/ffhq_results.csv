@@ -1,0 +1,2 @@
+Model,MSE,SSIM,LPIPS,FID
+Reconstruction,0.0269,0.7789,0.3097,83.63
