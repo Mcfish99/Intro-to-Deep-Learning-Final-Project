@@ -20,7 +20,7 @@ class CelebAHQDataset(Dataset):
         return len(self.paths)
 
     def __getitem__(self, idx):
-        img = Image.open(self.paths[idx]).convert('RGB')
+        img = Image.open(self.paths[idx]).convert('RGB
         return self.transform(img)
 
 class FFHQDataset(Dataset): 
